@@ -1,4 +1,5 @@
 .idea/
+environ.txt
 eval/
 etc/
 coco-caption/

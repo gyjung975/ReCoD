@@ -67,3 +67,6 @@ We conduct knowledge-based VQA at [PICa](https://github.com/microsoft/PICa).
 * GPT API key is required, but you can use other open source LLMs.
 
 Evaluating is done at [VQA](https://github.com/GT-Vision-Lab/VQA) and [A-OKVQA](https://github.com/allenai/aokvqa), respectively.
+
+## Acknowledgements
+Our codes are built upon [LLaVA](https://github.com/haotian-liu/LLaVA), [Qwen2-VL](https://github.com/QwenLM/Qwen2.5-VL), and [PICa](https://github.com/microsoft/PICa). Thanks for their efforts.

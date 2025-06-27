@@ -6,12 +6,12 @@ import numpy as np
 import torch
 from tqdm import tqdm
 from PIL import Image
+import template
 import clip
 
 from llava.mm_utils import get_model_name_from_path
 from llava.model.builder import load_pretrained_model
 from llava.eval.run_llava import batch_inference
-import template
 
 
 def save_config(args: argparse.Namespace):
@@ -99,13 +99,13 @@ def main(args):
     init_captions = {item['image_id']: item['new_captions'][0] for item in init_file}
 
     retrieval_store = load_data(args)
-    dataset = []
 
+    dataset = []
     save_config(args)
     for idx in tqdm(range(0, len(image_ids), args.batch_size)):
         target_ids = image_ids[idx:idx+args.batch_size]
-        target_path = [args.data_dir + f"{args.split}2014/COCO_{args.split}2014_{target_id:012d}.jpg" for target_id in target_ids] if args.dataset != 'aokvqa' \
-            else [args.data_dir + f"{args.split}2017/{target_id:012d}.jpg" for target_id in target_ids]
+        target_path = [os.path.join(args.data_dir, f"{args.split}2014/COCO_{args.split}2014_{target_id:012d}.jpg") for target_id in target_ids] if args.dataset == 'okvqa' \
+            else [os.path.join(args.data_dir, f"{args.split}2017/{target_id:012d}.jpg") for target_id in target_ids]
         target_image = [Image.open(target).convert("RGB") for target in target_path]
 
         caption = [init_captions[target_idx] for target_idx in target_ids]
@@ -158,8 +158,8 @@ def main(args):
 
 def gen_infer_file(raw_file, args):
     if args.dataset == 'okvqa':
-        question = json.load(open(f"../NAS/0datasets/OK-VQA/OpenEnded_mscoco_{args.split}2014_questions.json"))['questions']
-        answer = json.load(open(f"../NAS/0datasets/OK-VQA/mscoco_{args.split}2014_annotations.json"))['annotations']
+        question = json.load(open(f"data/OK-VQA/OpenEnded_mscoco_{args.split}2014_questions.json"))['questions']
+        answer = json.load(open(f"data/OK-VQA/mscoco_{args.split}2014_annotations.json"))['annotations']
         caption = json.load(open(raw_file))
 
         loop_dict = [{} for _ in range(0, args.loop+1)]
@@ -174,7 +174,7 @@ def gen_infer_file(raw_file, args):
                 q['new_captions'] = loop_can
             json.dump(question, open(f"diff/okvqa/llava_recod_{args.split}/llava_recod_{args.split}_total{l+1}.json", "w"), indent=4)
     else:
-        aokvqa = json.load(open(f"../NAS/0datasets/A-OKVQA/aokvqa_v1p0_{args.split}.json"))
+        aokvqa = json.load(open(f"data/A-OKVQA/aokvqa_v1p0_{args.split}.json"))
         caption = json.load(open(raw_file))
 
         loop_dict = [{} for _ in range(0, args.loop+1)]
@@ -191,7 +191,7 @@ def gen_infer_file(raw_file, args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Model Training')
-    parser.add_argument("--data_dir", type=str, default="data/")
+    parser.add_argument("--data_dir", type=str, default="data/COCO/")
     parser.add_argument("--model_path", type=str, default='liuhaotian/llava-v1.5-13b')
     parser.add_argument("--model_base", type=str, default=None)
     parser.add_argument("--conv_mode", type=str, default=None)

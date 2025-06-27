@@ -1,7 +1,7 @@
 .idea/
 environ.txt
 eval/
-etc/
+recocap/
 coco-caption/
 qwen_base.py
 qwen_recod.py

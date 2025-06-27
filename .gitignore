@@ -1,8 +1,4 @@
 .idea/
 environ.txt
-eval/
+evaluation/
 recocap/
-coco-caption/
-qwen_base.py
-qwen_recod.py
-qwen_recod_img.py

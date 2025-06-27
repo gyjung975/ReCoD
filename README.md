@@ -66,6 +66,15 @@ python claude_base.py --data_dir <data/path/> --dataset okvqa
 python claude_recod.py --data_dir <data/path/> --dataset okvqa
 # Claude w/ ReCoD (image-based)
 python claude_recod_img.py --data_dir <data/path/> --dataset okvqa
+
+### Qwen2-VL
+```shell
+# Claude w/o ReCoD
+python qwen_base.py --data_dir <data/path/> --dataset okvqa --size 7
+# Claude w/ ReCoD (text-based)
+python qwen_recod.py --data_dir <data/path/> --dataset okvqa --size 7
+# Claude w/ ReCoD (image-based)
+python qwen_recod_img.py --data_dir <data/path/> --dataset okvqa --size 7
 ```
 
 ## Evaluation

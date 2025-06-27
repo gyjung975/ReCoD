@@ -66,6 +66,7 @@ python claude_base.py --data_dir <data/path/> --dataset okvqa
 python claude_recod.py --data_dir <data/path/> --dataset okvqa
 # Claude w/ ReCoD (image-based)
 python claude_recod_img.py --data_dir <data/path/> --dataset okvqa
+```
 
 ### Qwen2-VL
 ```shell

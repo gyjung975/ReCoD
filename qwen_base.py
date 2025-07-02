@@ -48,10 +48,8 @@ def caption_processing(captions):
 
 @torch.no_grad()
 def main(args):
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
-        f"Qwen/Qwen2-VL-{args.size}B", torch_dtype="auto", device_map="auto", cache_dir='/home/gyj/recocap/.cache'
-    )
-    processor = AutoProcessor.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B-instruct", cache_dir='/home/gyj/recocap/.cache')
+    model = Qwen2VLForConditionalGeneration.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B", torch_dtype="auto", device_map="auto", cache_dir='.cache')
+    processor = AutoProcessor.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B-instruct", cache_dir='.cache')
 
     ids = json.load(open(f"data/OK-VQA/OpenEnded_mscoco_{args.split}2014_questions.json"))['questions'] if args.dataset == 'okvqa' \
         else json.load(open(f"data/A-OKVQA/aokvqa_v1p0_{args.split}.json"))

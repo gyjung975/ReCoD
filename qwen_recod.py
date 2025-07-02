@@ -86,10 +86,8 @@ def main(args):
     clip_model, _ = clip.load("ViT-L/14", device='cuda:0', download_root='.cache')
     clip_model.eval()
 
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
-        f"Qwen/Qwen2-VL-{args.size}B", torch_dtype="auto", device_map="auto", cache_dir='/home/gyj/recocap/.cache'
-    )
-    processor = AutoProcessor.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B-instruct", cache_dir='/home/gyj/recocap/.cache')
+    model = Qwen2VLForConditionalGeneration.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B", torch_dtype="auto", device_map="auto", cache_dir='.cache')
+    processor = AutoProcessor.from_pretrained(f"Qwen/Qwen2-VL-{args.size}B-instruct", cache_dir='.cache')
 
     target_datastore_file = '{}_{}_vitl14_img_features.pt'.format(args.dataset, args.split)
     target_datastore = torch.load(os.path.join('features', target_datastore_file))

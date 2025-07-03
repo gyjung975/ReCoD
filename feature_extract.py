@@ -48,9 +48,9 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Model Training')
-    parser.add_argument("--dataset", type=str, default="okvqa", choices=['coco', 'okvqa', 'aokvqa'])
+    parser.add_argument("--dataset", type=str, default="coco", choices=['coco', 'okvqa', 'aokvqa'])
     parser.add_argument("--year", type=str, default='2014', choices=['2014', '2017'])
-    parser.add_argument("--split", type=str, default="train", choices=['train', 'val'])
+    parser.add_argument("--split", type=str, default="train")
     parser.add_argument('--batch_size', type=int, default=256)
     args = parser.parse_args()
 

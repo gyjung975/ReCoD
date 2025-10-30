@@ -40,7 +40,7 @@ def main(args):
         id_list.extend(image_id)
         feat_list.append(image_features)
 
-    datastore = {'image_id': id_list, 'image_feature': torch.cat(feat_list)}
+    datastore = {'image_id': id_list, 'image_feature': torch.cat(feat_list).cpu()}
     save_path = os.path.join('features', f'coco{args.year[2:]}_train_vitl14_img_features.pt') if args.dataset == 'coco' \
         else os.path.join('features', f'{args.dataset}_{args.split}_vitl14_img_features.pt')
     torch.save(datastore, save_path)
@@ -48,7 +48,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Model Training')
-    parser.add_argument("--dataset", type=str, default="coco", choices=['coco', 'okvqa', 'aokvqa'])
+    parser.add_argument("--dataset", type=str, default="okvqa", choices=['coco', 'okvqa', 'aokvqa'])
     parser.add_argument("--year", type=str, default='2014', choices=['2014', '2017'])
     parser.add_argument("--split", type=str, default="train")
     parser.add_argument('--batch_size', type=int, default=256)

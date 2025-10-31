@@ -143,6 +143,7 @@ if __name__ == '__main__':
 
     if args.split == 'train':
         args.loop = 1
+
     args.save_path = 'diff/{}/llava_base_{}'.format(args.dataset, args.split)
     args.save_name = f'llava_base_{args.split}.json'
     print(os.path.join(args.save_path, args.save_name))

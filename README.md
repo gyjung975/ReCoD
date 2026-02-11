@@ -3,9 +3,9 @@
 <img src="figs/init_fig.jpg" alt= "" width="" height="250">
 </p>
 
-> This repository provides the official implementation of  
-> "ReCoD: Enhancing Image Description for Cross-Modal Understanding via Retrieval and Comparison Feedback Mechanism"
-> > [Geunyoung Jung](https://gyjung975.github.io/), Jun Park, Hankyeol Lee, [Kyungwoo Song](https://scholar.google.com/citations?user=HWxRii4AAAAJ&hl=ko), and [Jiyoung Jung](https://rcv.uos.ac.kr/)  
+This repository provides the official implementation of  
+"ReCoD: Enhancing Image Description for Cross-Modal Understanding via Retrieval and Comparison Feedback Mechanism"
+> [Geunyoung Jung](https://gyjung975.github.io/), Jun Park, Hankyeol Lee, [Kyungwoo Song](https://scholar.google.com/citations?user=HWxRii4AAAAJ&hl=ko), and [Jiyoung Jung](https://rcv.uos.ac.kr/)  
 > Neurocomputing
 
 ## Abstract

@@ -87,5 +87,18 @@ We conduct knowledge-based VQA at [PICa](https://github.com/microsoft/PICa).
 
 With the results of knowledge-based VQA, the evaluation is done at [VQA](https://github.com/GT-Vision-Lab/VQA) and [A-OKVQA](https://github.com/allenai/aokvqa) for OK-VQA and A-OKVQA, respectively.
 
+## Citation
+```bibtex
+@article{JUNG2026133025,
+  author = {Geunyoung Jung and Jun Park and Hankyeol Lee and Kyungwoo Song and Jiyoung Jung},
+  title = {ReCoD: Enhancing image description for cross-modal understanding via retrieval and comparison feedback mechanism},
+  journal = {Neurocomputing},
+  volume = {676},
+  pages = {133025},
+  year = {2026},
+  issn = {0925-2312},
+}
+```
+
 ## Acknowledgements
 Our codes are built upon [LLaVA](https://github.com/haotian-liu/LLaVA), [Qwen2-VL](https://github.com/QwenLM/Qwen2.5-VL), and [PICa](https://github.com/microsoft/PICa). Thanks for their efforts.
